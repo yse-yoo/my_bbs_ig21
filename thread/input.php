@@ -10,22 +10,17 @@ require_once '../app.php';
 <body>
     <?php include(COMPONENTS_DIR . 'nav.php') ?>
 
-    <h1>スレッド作成ページ</h1>
-    <div>
-        <form action="thread/add.php" method="post">
-            <div>
-                <label for="">タイトル</label>
-                <input type="text" name="title">
-            </div>
-            <div>
-                <label for="">説明</label>
-                <textarea name="description"></textarea>
-            </div>
-            <div>
-                <label for="">パスワード</label>
-                <input type="password" name="password">
-            </div>
-            <button>作成</button>
+    <div class="max-w-4xl mx-auto p-4">
+        <h1 class="text-3xl font-bold mb-4">新しいスレッドを作成</h1>
+        <form action="thread/add.php" method="post" class="mb-6">
+            <input name="title" class="w-full p-2 border border-gray-300 rounded mb-2" type="text" placeholder="タイトル" required />
+            <textarea name="content" class="w-full p-2 border border-gray-300 rounded mb-2" placeholder="内容" required></textarea>
+            <button class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600" type="submit">
+                作成
+            </button>
+            <a href="/thread/" class="inline-block bg-white py-2 px-4 rounded hover:bg-gray-100">
+                もどる
+            </a>
         </form>
     </div>
 </body>

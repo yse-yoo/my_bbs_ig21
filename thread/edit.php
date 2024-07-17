@@ -21,10 +21,6 @@ require_once '../app.php';
                 <label for="">説明</label>
                 <p>スレッドの内容。。。</p>
             </div>
-            <div>
-                <label for="">パスワード</label>
-                <input type="password" name="password">
-            </div>
             <button>削除</button>
         </form>
     </div>

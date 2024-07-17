@@ -3,49 +3,10 @@ class Thread extends DB
 {
     public $value = [];
     public $values = [];
-    public $table_name = "threads";
-
-    static $test_data = [
-        [
-            'id' => 1,
-            'title' => 'サッカーについて語れ！',
-            'description' => 'スレッドの内容。。。',
-            'password' => 'password'
-        ],
-        [
-            'id' => 2,
-            'title' => 'ドラゴンクエスト攻略法',
-            'description' => 'スレッドの内容。。。',
-            'password' => 'password'
-        ],
-        [
-            'id' => 3,
-            'title' => '海外旅行のおすすめ情報',
-            'description' => 'スレッドの内容。。。',
-            'password' => 'password'
-        ],
-        [
-            'id' => 4,
-            'title' => 'おいしいラーメン屋を教えて',
-            'description' => 'スレッドの内容。。。',
-            'password' => 'password'
-        ],
-        [
-            'id' => 5,
-            'title' => '人生相談Part1',
-            'description' => 'スレッドの内容。。。',
-            'password' => 'password'
-        ],
-    ];
+    public $table_name = "thread";
 
     function findById($id)
     {
-        // $ids = array_column(self::$test_data, 'id');
-        // $key = array_search($id, $ids);
-        // if ($key !== false) {
-        //     $this->value = self::$test_data[$key];
-        //     return $this->value;
-        // }
         $sql = "SELECT * FROM {$this->table_name} WHERE id = :id;";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute(['id' => $id]);
@@ -55,7 +16,6 @@ class Thread extends DB
 
     function get($limit = 100)
     {
-        // $this->values = self::$test_data;
         $sql = "SELECT * FROM {$this->table_name} LIMIT {$limit};";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
@@ -65,7 +25,7 @@ class Thread extends DB
 
     function getLatests($limit = 10)
     {
-        $sql = "SELECT * FROM {$this->table_name} ORDER BY created_at LIMIT {$limit};";
+        $sql = "SELECT * FROM {$this->table_name} ORDER BY createdAt LIMIT {$limit};";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
         $this->values = $stmt->fetchAll(PDO::FETCH_DEFAULT); 
@@ -75,8 +35,8 @@ class Thread extends DB
     function insert($posts)
     {
         $sql = "INSERT INTO {$this->table_name} 
-                (title, description, password) 
-                VALUES (:title, :description, :password);";
+                (title, content) 
+                VALUES (:title, :content);";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute($posts);
     }
