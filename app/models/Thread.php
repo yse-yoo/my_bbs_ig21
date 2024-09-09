@@ -3,7 +3,7 @@ class Thread extends DB
 {
     public $value = [];
     public $values = [];
-    public $table_name = "thread";
+    public $table_name = "threads";
 
     function findById($id)
     {

@@ -3,7 +3,7 @@ class Post extends DB
 {
     public $value = [];
     public $values = [];
-    public $table_name = "post";
+    public $table_name = "posts";
 
     function findById($id)
     {
