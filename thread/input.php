@@ -18,7 +18,7 @@ require_once '../app.php';
             <button class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600" type="submit">
                 作成
             </button>
-            <a href="/thread/" class="inline-block bg-white py-2 px-4 rounded hover:bg-gray-100">
+            <a href="thread/" class="inline-block bg-white py-2 px-4 rounded hover:bg-gray-100">
                 もどる
             </a>
         </form>

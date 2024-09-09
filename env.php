@@ -1,5 +1,6 @@
 <?php 
-const BASE_URL = "http://localhost/my_bbs_ig21/";
+// const BASE_URL = "http://localhost/my_bbs_ig21/";
+const BASE_URL = "http://localhost:88/my_bbs_ig21/";
 const SITE_TITLE = "My BBS";
 const APP_KEY = "my_bbs";
 
